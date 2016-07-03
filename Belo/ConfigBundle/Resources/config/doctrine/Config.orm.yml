@@ -1,0 +1,19 @@
+Belo\ConfigBundle\Entity\Config:
+    type: entity
+    table: null
+    repositoryClass: MainBundle\Repository\ConfigRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        confKey:
+            type: string
+            length: 191
+            unique: true
+        confValue:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

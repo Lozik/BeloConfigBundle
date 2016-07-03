@@ -1,6 +1,6 @@
 # BeloConfigBundle
 
-A simple configuration Bundle for Symfony.
+A simple configuration Bundle for Symfony. It lets you store configuration variables in the database in an efficient way. It uses doctrine ORM for database mnagement.
 
 Installation
 ============
@@ -50,6 +50,20 @@ twig:
     globals:
         config:   "@belo_config.config"
 ```
+
+Step 4: Update database
+-------------------------
+
+To update the database, open a command console, enter your project directory and execute the
+following command:
+```bash
+$ php app/console doctrine:schema:update --dump-sql
+```
+Verify the SQL request. If everything looks right, run:
+```bash
+$ php app/console doctrine:schema:update --force
+```
+
 
 Usage
 ============

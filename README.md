@@ -38,10 +38,10 @@ class AppKernel extends Kernel
 }
 ```
 
-Step 3: Enable the service for TWIG
+Step 3: Enable the service for Twig
 -------------------------
 
-Finally, update your `app/config/config.yml` file:
+Finally, if you wish the configuration to be available inside your Twig templates, simply update your `app/config/config.yml` file:
 
 ```yml
 # Twig Configuration
@@ -50,3 +50,37 @@ twig:
     globals:
         config:   "@belo_config.config"
 ```
+
+Usage
+============
+
+Inside the controller
+-------------------------
+
+Access config values with 
+```php
+$this->get('belo_config.config')->get('configkey');
+```
+Update or insert config values with
+```php
+$this->get('belo_config.config')->set('configkey', 'configvalue');
+```
+Remove config values with
+```php
+$this->get('belo_config.config')->remove('configkey');
+```
+
+Inside the Twig template
+-------------------------
+
+If you changed your configuration file according to step 3 of the installation, you can access configuration values as follows inside a Twig template:
+```twig
+{{ config.get('configkey') }}
+```
+(The methods ```set``` and ```remove``` work exactely the same as in the controller with the syntax here before)
+
+
+Licence & Copyrights
+============
+
+See licence file for details.

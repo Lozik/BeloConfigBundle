@@ -1,5 +1,5 @@
 services:
-    belo.config:
+    belo_config.config:
         class: Belo\ConfigBundle\Utils\Config
         arguments:
             entityManager: "@doctrine.orm.entity_manager"

@@ -1,6 +1,6 @@
 # BeloConfigBundle
 
-A simple configuration Bundle for Symfony. It lets you store configuration variables in the database in an efficient way. It uses doctrine ORM for database mnagement.
+A simple configuration Bundle for Symfony. It lets you store configuration variables in the database in an efficient way. It uses doctrine ORM for database management.
 
 Installation
 ============
@@ -41,7 +41,7 @@ class AppKernel extends Kernel
 Step 3: Enable the service for Twig
 -------------------------
 
-Finally, if you wish the configuration to be available inside your Twig templates, simply update your `app/config/config.yml` file:
+If you wish the configuration to be available inside your Twig templates, simply update your `app/config/config.yml` file:
 
 ```yml
 # Twig Configuration
@@ -54,7 +54,7 @@ twig:
 Step 4: Update database
 -------------------------
 
-To update the database, open a command console, enter your project directory and execute the
+Finally, to update the database, open a command console, enter your project directory and execute the
 following command:
 ```bash
 $ php app/console doctrine:schema:update --dump-sql

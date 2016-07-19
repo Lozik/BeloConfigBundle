@@ -56,7 +56,7 @@ class Config
             $this->reloadCache();
             return true;
         }
-        $newConfig = new \MainBundle\Entity\Config();
+        $newConfig = new \Belo\ConfigBundle\Entity\Config();
         $newConfig->setConfKey($key);
         $newConfig->setConfValue($value);
         $this->em->persist($newConfig);

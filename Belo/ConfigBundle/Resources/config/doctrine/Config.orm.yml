@@ -1,7 +1,7 @@
 Belo\ConfigBundle\Entity\Config:
     type: entity
     table: null
-    repositoryClass: MainBundle\Repository\ConfigRepository
+    repositoryClass: Belo\Configbundle\Repository\ConfigRepository
     id:
         id:
             type: integer

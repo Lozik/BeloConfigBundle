@@ -73,15 +73,22 @@ Inside the controller
 
 Access config values with 
 ```php
-$this->get('belo_config.config')->get('configkey');
+$this->get('belo_config.config')->get('configKey');
 ```
 Update or insert config values with
 ```php
-$this->get('belo_config.config')->set('configkey', 'configvalue');
+$this->get('belo_config.config')->set('configKey', 'configValue');
+$this->get('belo_config.config')->set('anotherConfigKey', 'anotherConfigValue');
+$this->get('belo_config.config')->flush();
+// or, flushing instantly:
+$this->get('belo_config.config')->set('configKey', 'configValue', true);
 ```
+**Attention!** If you use doctrine and call the doctrine `flush()` method between any `config->set()` calls, you will get undesired behaviour. You will need to call the `config->flush()` method prior to any `get()` calls as the old configuration is still cached.  
+
 Remove config values with
 ```php
 $this->get('belo_config.config')->remove('configkey');
+// no flush()-call needed
 ```
 
 Inside the Twig template
@@ -91,8 +98,11 @@ If you changed your configuration file according to step 3 of the installation, 
 ```twig
 {{ config.get('configkey') }}
 ```
-(The methods ```set``` and ```remove``` work exactely the same as in the controller with the syntax here before)
+(The methods ```set``` and ```remove``` work exactely the same as in the controller with the syntax here before. Best practice: Don't set or remove a config value in a template. That's the work of the controller.)
 
+Exceptions
+-------------------------
+The methods now throw different exceptions to indicate programming errors. See the PHPDoc comments in [Utils/Config.php](Belo/ConfigBundle/Utils/Config.php) for detailled API usage. If you are not sure if a config key exists, you may use `exists()` to avoid unwanted exceptions.
 
 Licence & Copyrights
 ============

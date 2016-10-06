@@ -90,11 +90,11 @@ class Config
         if(!is_bool($flushInstantly)) {
             throw new \BadMethodCallException("Third argument must be a boolean.");
         }
-        if($value === $this->cache[$key]) {
-            return true;
-        }
         if(key_exists($key, $this->cache))
         {
+            if($value === $this->cache[$key]) {
+                return true;
+            }
             if($this->objectCache === null) {
                 $this->reloadCache(true);
             }
